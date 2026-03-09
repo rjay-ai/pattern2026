@@ -341,7 +341,7 @@ function ScoreRing({ score }) {
 }
 
 function MonthCalendar({ reading }) {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<string|null>(null);
 
   const getMonthData = (m) => {
     const best = [], careful = [];
@@ -442,26 +442,26 @@ function LifeCard({ area, data }) {
 /* ─── MAIN APP ───────────────────────────────────────────────── */
 export default function App() {
   // flow
-  const [step, setStep] = useState("lens");
-  const [lens, setLens] = useState(null);
+  const [step, setStep] = useState<string>("lens");
+  const [lens, setLens] = useState<string|null>(null);
   const [form, setForm] = useState({ name:"", dob:"", tob:"06:00", birthCity:"" });
-  const [ctx, setCtx] = useState({
+  const [ctx, setCtx] = useState<{[key:string]:any}>({
     currentCity:"", jobStatus:"", lifeStatus:"", activeChallenge:"",
     focusQuestion:"", sidehustle: false, openToMove: false
   });
   const [loadStage, setLoadStage] = useState(0);
   const [errMsg, setErrMsg] = useState("");
   // result
-  const [reading, setReading] = useState(null);
-  const [todayScore, setTodayScore] = useState(null);
+  const [reading, setReading] = useState<any>(null);
+  const [todayScore, setTodayScore] = useState<any>(null);
   const [activeTab, setActiveTab] = useState("overview");
   // chat
-  const [chatMsgs, setChatMsgs] = useState([]);
+  const [chatMsgs, setChatMsgs] = useState<any[]>([]);
   const [chatInput, setChatInput] = useState("");
   const [chatBusy, setChatBusy] = useState(false);
   // decision
   const [dec, setDec] = useState({ question:"", date1:"", date2:"" });
-  const [decResult, setDecResult] = useState(null);
+  const [decResult, setDecResult] = useState<string|null>(null);
   const [decBusy, setDecBusy] = useState(false);
   const timerRef = useRef(null);
   const chatEndRef = useRef(null);
